@@ -3,8 +3,6 @@
   margin-bottom: 20px;
   padding-bottom: 20px;
   padding-top: 20px;
-  border-bottom: 1px solid grey;
-  border-top: 1px solid grey;
 }
 
 .about {
@@ -34,17 +32,15 @@
   font-size: 16px;
 }
 
-.navigation {
-  text-align: center;
-  border-bottom: 1px solid grey;
-  padding-bottom: 15px;
-}
-
-.information {
-  text-align: center;
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  color: white;
   font-size: 18px;
 }
-s img {
+
+img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -68,15 +64,9 @@ s img {
   margin-right: auto;
 }
 
-.trendMovie {
-  border-radius: 5px;
-  overflow: hidden;
-}
-
 .title {
   text-align: center;
-  font-style: italic;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .imageTrend {
@@ -95,6 +85,7 @@ s img {
   text-decoration: none;
 }
 
+/* --------- Cast ------------- */
 .cast {
   display: flex;
   flex-wrap: wrap;
@@ -128,6 +119,7 @@ s img {
   cursor: pointer;
 }
 
+/* --------------------------- */
 .character {
   font-size: 12px;
 }
