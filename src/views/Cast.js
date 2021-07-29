@@ -3,21 +3,20 @@ import * as moviesTekaAPI from "../services/movieteka-api";
 import noPhoto from "../images/noimage.jpg";
 import styles from "./Views.module.css";
 
-export default function Cast(movieId) {
+export default function Cast(moviesId) {
   const [cast, setCast] = useState(null);
 
   useEffect(() => {
-    moviesTekaAPI.getCast(movieId).then((data) => {
+    moviesTekaAPI.getCast(moviesId).then((data) => {
       if (data.cast.length === 0) {
         throw new Error("Is not available");
       }
       setCast(data.cast);
     });
-  }, [movieId]);
+  }, [moviesId]);
 
   return (
     <>
-      <h2>{cast.title}</h2>
       <div>
         {cast && (
           <ul className={styles.cast}>
@@ -34,8 +33,11 @@ export default function Cast(movieId) {
                   height="150"
                   className={styles.castImg}
                 />
-                <p></p>
-                <p></p>
+                <p>{item.name}</p>
+                <p className={styles.character}>
+                  Character: <br />
+                  {item.character}
+                </p>
               </li>
             ))}
           </ul>

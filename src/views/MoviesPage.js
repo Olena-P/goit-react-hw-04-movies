@@ -7,15 +7,15 @@ import {
 } from "react-router-dom";
 import { toast } from "react-toastify";
 import SearchBar from "../Components/PageHeading/PageHeading";
-import * as moviesTekaAPI from "../services/movieteka-api";
-import noImage from "../images/noimage.jpg";
+import * as themoviedbAPI from "../services/movieteka-api";
+import noImageAv from "../images/noimage.jpg";
 import styles from "./Views.module.css";
 
-export default function MoviesPage() {
-  const { url } = useRouteMatch();
+export default function MoviesView() {
   const history = useHistory();
   const location = useLocation();
   const [movies, setMovies] = useState(null);
+  const { url } = useRouteMatch();
   const [error, setError] = useState();
 
   const searchQuery = new URLSearchParams(location.search).get("query") ?? "";
@@ -29,7 +29,7 @@ export default function MoviesPage() {
       return;
     }
 
-    moviesTekaAPI
+    themoviedbAPI
       .getSearchMovie(searchQuery)
       .then((data) => {
         if (data.results.length === 0) {
@@ -53,7 +53,7 @@ export default function MoviesPage() {
                 src={
                   movie.poster_path
                     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                    : noImage
+                    : noImageAv
                 }
                 alt={movie.title}
                 width="320"

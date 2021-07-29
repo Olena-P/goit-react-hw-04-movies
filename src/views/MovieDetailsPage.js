@@ -9,30 +9,34 @@ import {
   useHistory,
 } from "react-router-dom";
 import Loader from "react-loader-spinner";
-import * as moviesTekaAPI from "../services/movieteka-api";
-import noImage from "../images/noimage.jpg";
+import * as themoviedbAPI from "../services/movieteka-api";
+import noImageAv from "..//images/noimage.jpg";
 import styles from "./Views.module.css";
 
-const Cast = lazy(() => import("./Cast"));
+const CastView = lazy(() =>
+  import("./Cast" /* webpackChunkName: "cast-view" */)
+);
 
-const Reviews = lazy(() => import("./Reviews"));
+const ReviewsView = lazy(() =>
+  import("./Reviews" /* webpackChunkName: "review-view" */)
+);
 
-export default function MovieDetailsPage() {
+export default function HomeSubView() {
   const { url, path } = useRouteMatch();
-  const { movieId } = useParams();
+  const { moviesId } = useParams();
   const location = useLocation();
   const history = useHistory();
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    moviesTekaAPI
-      .getMoviesById(movieId)
+    themoviedbAPI
+      .getMoviesById(moviesId)
       .then((data) => {
         setMovie(data);
       })
       .catch((error) => setError(error));
-  }, [movieId]);
+  }, [moviesId]);
 
   const onGoBack = () => {
     history.push(location?.state?.from?.location ?? "/movies");
@@ -50,7 +54,7 @@ export default function MovieDetailsPage() {
               src={
                 movie.poster_path
                   ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                  : noImage
+                  : noImageAv
               }
               alt={movie.title}
               width="250"
@@ -108,18 +112,18 @@ export default function MovieDetailsPage() {
                 color="#00BFFF"
                 height={100}
                 width={100}
-                timeout={3000}
+                timeout={3000} //3 secs
                 className={styles.loader}
               />
             }
           >
             <Switch>
-              <Route path={`${path}:movieId/cast`}>
-                <Cast movieId={movieId} />
+              <Route path={`${path}:moviesId/cast`}>
+                <CastView moviesId={moviesId} />
               </Route>
 
-              <Route path={`${path}:movieId/reviews`}>
-                <Reviews movieId={movieId} />
+              <Route path={`${path}:moviesId/reviews`}>
+                <ReviewsView moviesId={moviesId} />
               </Route>
             </Switch>
           </Suspense>

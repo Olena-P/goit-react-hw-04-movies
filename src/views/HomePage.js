@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useHistory, useLocation, Link, useRouteMatch } from "react-router-dom";
+import { useRouteMatch, useLocation, useHistory, Link } from "react-router-dom";
 import * as moviesTekaAPI from "../services/movieteka-api";
 import noImage from "../images/noimage.jpg";
-import styles from "./Views.module.css";
+import styles from "../views/Views.module.css";
 
 export default function HomePage() {
   const { url } = useRouteMatch();
@@ -19,7 +19,7 @@ export default function HomePage() {
         setMovies(data.results);
       })
       .catch((error) => setError(error));
-  }, [history]);
+  }, []);
 
   return (
     <>

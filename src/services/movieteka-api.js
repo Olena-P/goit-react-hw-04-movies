@@ -14,9 +14,9 @@ export function getTrendingMovies() {
   );
 }
 
-export function getMoviesById(movieId) {
+export function getMoviesById(moviesId) {
   return fetchWithErrorHandling(
-    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
+    `${BASE_URL}/movie/${moviesId}?api_key=${API_KEY}`
   );
 }
 
@@ -26,14 +26,14 @@ export function getSearchMovie(query) {
   );
 }
 
-export function getCast(movieId) {
+export function getCast(moviesId) {
   return fetchWithErrorHandling(
-    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`
+    `${BASE_URL}/movie/${moviesId}/credits?api_key=${API_KEY}`
   );
 }
 
-export function getReviews(movieId) {
+export function getReviews(moviesId) {
   return fetchWithErrorHandling(
-    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`
+    `${BASE_URL}/movie/${moviesId}/reviews?api_key=${API_KEY}`
   );
 }
