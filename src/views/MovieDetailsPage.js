@@ -9,7 +9,7 @@ import {
   useHistory,
 } from "react-router-dom";
 import Loader from "react-loader-spinner";
-import * as themoviedbAPI from "../services/movieteka-api";
+import * as moviesTekaAPI from "../services/movieteka-api";
 import noImage from "../images/noimage.jpg";
 import styles from "./Views.module.css";
 
@@ -26,7 +26,7 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    themoviedbAPI
+    moviesTekaAPI
       .getMoviesById(movieId)
       .then((data) => {
         setMovie(data);
