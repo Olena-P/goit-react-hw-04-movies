@@ -14,9 +14,9 @@ export function getTrendingMovies() {
   );
 }
 
-export function getMovieById(movieId) {
+export function getMoviesById(movieId) {
   return fetchWithErrorHandling(
-    `${BASE_URL}/movies/${movieId}?api_key=${API_KEY}`
+    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
   );
 }
 

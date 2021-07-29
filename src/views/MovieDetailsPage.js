@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import * as themoviedbAPI from "../services/movieteka-api";
-import noImageAv from "../Image/noImageAvailable.jpg";
+import noImage from "../images/noimage.jpg";
 import styles from "./Views.module.css";
 
 const Cast = lazy(() => import("./Cast"));
@@ -50,7 +50,7 @@ export default function MovieDetailsPage() {
               src={
                 movie.poster_path
                   ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                  : noImageAv
+                  : noImage
               }
               alt={movie.title}
               width="250"

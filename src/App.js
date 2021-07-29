@@ -1,38 +1,50 @@
 import { Switch, Route } from "react-router-dom";
 import AppBar from "./Components/AppBar/AppBar";
 import Container from "./Components/Container/Container";
-import HomePage from "./views/HomePage";
-import MoviesPage from "./views/MoviesPage";
-// import MovieDetalisPage from "./views/MovieDetalisPage";
-// import Cast from "./views/Cast";
-// import Reviews from "./views/Reviews";
+import { lazy, Suspense } from "react";
+import Loader from "react-loader-spinner";
+
+const HomePage = lazy(() => import("./views/HomePage"));
+
+const MoviesPage = lazy(() => import("./views/MoviesPage"));
+
+const MovieDetailsPage = lazy(() => import("./views/MovieDetailsPage"));
 
 export default function App() {
   return (
     <Container>
-      <AppBar />
+      <Suspense
+        fallback={
+          <div style={{ textAlign: "center", marginTop: "80px" }}>
+            <Loader
+              type="Circles"
+              color="#31fff5be"
+              height={100}
+              width={100}
+              timeout={3000} //3 secs
+            />
+          </div>
+        }
+      >
+        <AppBar />
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
 
-      <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
+          <Route path="/movies" exact>
+            <MoviesPage />
+          </Route>
 
-        <Route path="/movies">
-          <MoviesPage />
-        </Route>
+          <Route path="/movies/:movieId">
+            <MovieDetailsPage />
+          </Route>
 
-        {/* <Route path="/movies/:moviesId">
-          <MovieDetalisPage />
-        </Route> */}
-
-        {/* <Route path="/movies/:moviesId/cast">
-          <Cast />
-        </Route> */}
-
-        {/* <Route path="/movies/:moviesId/reviews">
-          <Reviews />
-        </Route> */}
-      </Switch>
+          <Route>
+            <HomePage />
+          </Route>
+        </Switch>
+      </Suspense>
     </Container>
   );
 }
