@@ -43,7 +43,6 @@ export default function HomeView() {
                         : noImageAv
                     }
                     alt={movie.title}
-                    // width="320"
                     className={styles.imageTrend}
                   />
                   <p className={styles.title}>{movie.title}</p>

@@ -6,17 +6,11 @@ import Loader from "react-loader-spinner";
 import Container from "./Components/Container/Container";
 import AppBar from "./Components/AppBar/AppBar";
 
-const HomeView = lazy(
-  () => import("./views/HomeView") /* webpackChunkName: "HomeView" */
-);
+const HomeView = lazy(() => import("./views/HomeView"));
 
-const MoviesView = lazy(
-  () => import("./views/MoviesView") /* webpackChunkName: "MoviesView" */
-);
+const MoviesView = lazy(() => import("./views/MoviesView"));
 
-const HomeSubView = lazy(
-  () => import("./views/HomeSubView") /* webpackChunkName: "HomeSubView" */
-);
+const HomeSubView = lazy(() => import("./views/HomeSubView"));
 
 function App() {
   return (
@@ -25,11 +19,11 @@ function App() {
         fallback={
           <div style={{ textAlign: "center", marginTop: "80px" }}>
             <Loader
-              type="Circles"
-              color="#ffd800"
+              type="Puff"
+              color="#48e6cb"
               height={100}
               width={100}
-              timeout={3000} //3 secs
+              timeout={3000}
             />
           </div>
         }

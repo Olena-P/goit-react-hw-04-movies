@@ -104,11 +104,11 @@ export default function HomeSubView() {
           <Suspense
             fallback={
               <Loader
-                type="Circles"
-                color="#ffd800"
+                type="Puff"
+                color="#48e6cb"
                 height={100}
                 width={100}
-                timeout={3000} //3 secs
+                timeout={3000}
                 className={styles.loader}
               />
             }
