@@ -26,14 +26,26 @@ export function getSearchMovie(query) {
   );
 }
 
-export function getCast(moviesId) {
+export function getCastMovie(moviesId) {
   return fetchWithErrorHandling(
     `${BASE_URL}/movie/${moviesId}/credits?api_key=${API_KEY}`
   );
 }
 
-export function getReviews(moviesId) {
+export function getReviewsMovie(moviesId) {
   return fetchWithErrorHandling(
     `${BASE_URL}/movie/${moviesId}/reviews?api_key=${API_KEY}`
   );
 }
+
+// export function fetchDetalisMovie() {
+//   return fetchWithErrorHandling(`${BASE_URL}`);
+// }
+
+// export function fetchCast() {
+//   return fetchWithErrorHandling(`${BASE_URL}`);
+// }
+
+// export function fetchReviews() {
+//   return fetchWithErrorHandling(`${BASE_URL}`);
+// }

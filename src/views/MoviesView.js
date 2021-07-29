@@ -6,9 +6,9 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import { toast } from "react-toastify";
-import SearchBar from "../Components/PageHeading/PageHeading";
+import SearchBar from "../Components/SearchBar/SearchBar";
 import * as themoviedbAPI from "../services/movieteka-api";
-import noImageAv from "../images/noimage.jpg";
+import noImageAv from "../Image/noImageAvailable.jpg";
 import styles from "./Views.module.css";
 
 export default function MoviesView() {

@@ -1,0 +1,27 @@
+.form {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.input {
+  padding: 8px 50px;
+  border-radius: 10px;
+}
+
+.button {
+  padding: 8px 20px;
+  border-radius: 10px;
+  background-color: #008a73;
+  color: white;
+  font-weight: bolder;
+  box-shadow: inset rgba(0, 0, 0, 0.5) -3px -3px 8px,
+    inset rgba(255, 255, 255, 0.9) 3px 3px 8px,
+    rgba(0, 0, 0, 0.8) 3px 3px 8px -3px;
+  margin-left: 10px;
+}
+
+.button:hover {
+  background-color: #48e6cb;
+  color: black;
+  cursor: pointer;
+}

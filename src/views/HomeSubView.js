@@ -10,16 +10,12 @@ import {
 } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import * as themoviedbAPI from "../services/movieteka-api";
-import noImageAv from "..//images/noimage.jpg";
+import noImageAv from "../Image/noImageAvailable.jpg";
 import styles from "./Views.module.css";
 
-const CastView = lazy(() =>
-  import("./Cast" /* webpackChunkName: "cast-view" */)
-);
+const CastView = lazy(() => import("./CastView"));
 
-const ReviewsView = lazy(() =>
-  import("./Reviews" /* webpackChunkName: "review-view" */)
-);
+const ReviewsView = lazy(() => import("./Reviews"));
 
 export default function HomeSubView() {
   const { url, path } = useRouteMatch();
@@ -47,7 +43,7 @@ export default function HomeSubView() {
       {movie && (
         <>
           <button type="button" className={styles.button} onClick={onGoBack}>
-            ⬅ Go back
+            &larr; Go back
           </button>
           <div className={styles.movies}>
             <img
@@ -60,7 +56,7 @@ export default function HomeSubView() {
               width="250"
             />
             <div className={styles.about}>
-              <h1>{movie.title}</h1>
+              <h1 className={styles.movieTitle}>{movie.title}</h1>
               <p>User Score: {movie.vote_average * 10}%</p>
               <p className={styles.overview}>
                 Overview
@@ -109,7 +105,7 @@ export default function HomeSubView() {
             fallback={
               <Loader
                 type="Circles"
-                color="#00BFFF"
+                color="#ffd800"
                 height={100}
                 width={100}
                 timeout={3000} //3 secs

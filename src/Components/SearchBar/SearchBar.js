@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import styles from "./PageHeading.module.css";
+import styles from "./SearchBar.module.css";
 
 export default function SearchBar({ onSubmit }) {
   const [name, setName] = useState("");

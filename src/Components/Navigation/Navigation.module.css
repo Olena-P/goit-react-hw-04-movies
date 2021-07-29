@@ -1,13 +1,18 @@
+.nav {
+  margin: 20px;
+}
+
 .link {
   display: inline-block;
   text-decoration: none;
   padding: 12px;
   font-weight: 500;
-  color: #000000;
+  color: rgb(2, 2, 2);
   font-size: 18px;
 }
 
 .activeLink {
   composes: link;
-  color: #0676d1;
+  color: #008a73;
+  font-weight: bolder;
 }

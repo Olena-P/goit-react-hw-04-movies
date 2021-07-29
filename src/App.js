@@ -1,16 +1,24 @@
-import { Switch, Route } from "react-router-dom";
-import AppBar from "./Components/AppBar/AppBar";
-import Container from "./Components/Container/Container";
 import { lazy, Suspense } from "react";
+import { Switch, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Loader from "react-loader-spinner";
+import Container from "./Components/Container/Container";
+import AppBar from "./Components/AppBar/AppBar";
 
-const HomePage = lazy(() => import("./views/HomePage"));
+const HomeView = lazy(
+  () => import("./views/HomeView") /* webpackChunkName: "HomeView" */
+);
 
-const MoviesPage = lazy(() => import("./views/MoviesPage"));
+const MoviesView = lazy(
+  () => import("./views/MoviesView") /* webpackChunkName: "MoviesView" */
+);
 
-const MovieDetailsPage = lazy(() => import("./views/MovieDetailsPage"));
+const HomeSubView = lazy(
+  () => import("./views/HomeSubView") /* webpackChunkName: "HomeSubView" */
+);
 
-export default function App() {
+function App() {
   return (
     <Container>
       <Suspense
@@ -18,7 +26,7 @@ export default function App() {
           <div style={{ textAlign: "center", marginTop: "80px" }}>
             <Loader
               type="Circles"
-              color="#31fff5be"
+              color="#ffd800"
               height={100}
               width={100}
               timeout={3000} //3 secs
@@ -27,24 +35,29 @@ export default function App() {
         }
       >
         <AppBar />
+
         <Switch>
           <Route path="/" exact>
-            <HomePage />
+            <HomeView />
           </Route>
 
           <Route path="/movies" exact>
-            <MoviesPage />
+            <MoviesView />
           </Route>
 
           <Route path="/movies/:moviesId">
-            <MovieDetailsPage />
+            <HomeSubView />
           </Route>
 
           <Route>
-            <HomePage />
+            <HomeView />
           </Route>
         </Switch>
       </Suspense>
+
+      <ToastContainer autoClose={3000} />
     </Container>
   );
 }
+
+export default App;

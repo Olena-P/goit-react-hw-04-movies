@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
-import * as moviesTekaAPI from "../services/movieteka-api";
+import * as themoviedbAPI from "../services/movieteka-api";
+import styles from "./Views.module.css";
 
-export default function Reviews(moviesId) {
+export default function ReviewsView({ moviesId }) {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    moviesTekaAPI.getReviews(moviesId).then((data) => {
+    themoviedbAPI.getReviewsMovie(moviesId).then((data) => {
+      console.log(data.results);
+
       setReviews(data.results);
     });
   }, [moviesId]);
 
   return (
     <>
-      <div>
+      <div className={styles.review}>
         {reviews.length > 0 ? (
           <ul>
             {reviews.map((review) => (

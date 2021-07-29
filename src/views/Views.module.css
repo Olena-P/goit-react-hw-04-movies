@@ -3,10 +3,16 @@
   margin-bottom: 20px;
   padding-bottom: 20px;
   padding-top: 20px;
+  border-bottom: 1px solid grey;
+  border-top: 1px solid grey;
 }
 
 .about {
   margin-left: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 30px;
 }
 
 .overview {
@@ -32,22 +38,53 @@
   font-size: 16px;
 }
 
-.link {
-  display: inline-block;
-  text-decoration: none;
-  padding: 12px;
-  color: #000000;
+.navigation {
+  text-align: center;
+  border-bottom: 1px solid grey;
+  padding-bottom: 15px;
+}
+
+.information {
+  text-align: center;
   font-size: 18px;
+}
+
+.link {
+  padding: 8px 20px;
+  border-radius: 10px;
+  background-color: #008a73;
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+  box-shadow: inset rgba(0, 0, 0, 0.5) -3px -3px 8px,
+    inset rgba(255, 255, 255, 0.9) 3px 3px 8px,
+    rgba(0, 0, 0, 0.8) 3px 3px 8px -3px;
+  margin-left: 10px;
+}
+
+.link:hover,
+.link:focus {
+  background-color: #48e6cb;
+  color: black;
+  cursor: pointer;
+}
+
+.activeLink {
+  background-color: #48e6cb;
+  color: black;
+  cursor: pointer;
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 
 .trendToday {
   text-align: center;
+  font-weight: bolder;
   color: #000000;
 }
 
@@ -64,9 +101,20 @@ img {
   margin-right: auto;
 }
 
+/* .trendMovie {
+  border-radius: 5px;
+  box-shadow: inset rgba(0, 0, 0, 0.5) -3px -3px 8px,
+    inset rgba(255, 255, 255, 0.9) 3px 3px 8px,
+    rgba(0, 0, 0, 0.8) 3px 3px 8px -3px;
+  overflow: hidden;
+} */
+
 .title {
   text-align: center;
   color: #000000;
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  /* backdrop-filter: blur(5px);
+  border-radius: 10px; */
 }
 
 .imageTrend {
@@ -85,7 +133,25 @@ img {
   text-decoration: none;
 }
 
-/* --------- Cast ------------- */
+.button {
+  padding: 8px 20px;
+  border-radius: 10px;
+  background-color: #008a73;
+  color: white;
+  font-weight: bolder;
+  box-shadow: inset rgba(0, 0, 0, 0.5) -3px -3px 8px,
+    inset rgba(255, 255, 255, 0.9) 3px 3px 8px,
+    rgba(0, 0, 0, 0.8) 3px 3px 8px -3px;
+  margin-left: 10px;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #48e6cb;
+  color: black;
+  cursor: pointer;
+}
+
 .cast {
   display: flex;
   flex-wrap: wrap;
@@ -117,7 +183,6 @@ img {
   cursor: pointer;
 }
 
-/* --------------------------- */
 .character {
   font-size: 12px;
 }
@@ -128,4 +193,14 @@ img {
 
 .notFound {
   text-align: center;
+}
+
+.movieTitle {
+  color: #000000;
+}
+
+.review {
+  /* background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 10px; */
 }

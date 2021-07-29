@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useRouteMatch, useLocation, useHistory, Link } from "react-router-dom";
-import * as moviesTekaAPI from "../services/movieteka-api";
-import noImage from "../images/noimage.jpg";
-import styles from "../views/Views.module.css";
+import { useHistory, Link, useRouteMatch, useLocation } from "react-router-dom";
+import * as themoviedbAPI from "../services/movieteka-api";
+import styles from "./Views.module.css";
+import noImageAv from "../Image/noImageAvailable.jpg";
 
-export default function HomePage() {
+export default function HomeView() {
   const { url } = useRouteMatch();
   const [movies, setMovies] = useState([]);
   const location = useLocation();
@@ -12,7 +12,7 @@ export default function HomePage() {
   const history = useHistory();
 
   useEffect(() => {
-    moviesTekaAPI
+    themoviedbAPI
       .getTrendingMovies()
       .then((data) => {
         history.push("/");
@@ -40,9 +40,10 @@ export default function HomePage() {
                     src={
                       movie.poster_path
                         ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                        : noImage
+                        : noImageAv
                     }
                     alt={movie.title}
+                    // width="320"
                     className={styles.imageTrend}
                   />
                   <p className={styles.title}>{movie.title}</p>
