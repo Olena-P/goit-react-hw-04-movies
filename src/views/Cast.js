@@ -3,7 +3,7 @@ import * as themoviedbAPI from "../services/movieteka-api";
 import noPhoto from "../Image/nophoto.jpg";
 import styles from "./Views.module.css";
 
-export default function CastView({ moviesId }) {
+export default function Cast({ moviesId }) {
   const [cast, setCast] = useState(null);
 
   useEffect(() => {

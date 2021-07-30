@@ -11,7 +11,7 @@ import * as themoviedbAPI from "../services/movieteka-api";
 import noImageAv from "../Image/noImageAvailable.jpg";
 import styles from "./Views.module.css";
 
-export default function MoviesView() {
+export default function MoviesPage() {
   const history = useHistory();
   const location = useLocation();
   const [movies, setMovies] = useState(null);

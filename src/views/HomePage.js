@@ -4,7 +4,7 @@ import * as themoviedbAPI from "../services/movieteka-api";
 import styles from "./Views.module.css";
 import noImageAv from "../Image/noImageAvailable.jpg";
 
-export default function HomeView() {
+export default function HomePage() {
   const { url } = useRouteMatch();
   const [movies, setMovies] = useState([]);
   const location = useLocation();

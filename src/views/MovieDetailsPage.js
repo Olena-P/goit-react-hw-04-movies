@@ -13,11 +13,11 @@ import * as themoviedbAPI from "../services/movieteka-api";
 import noImageAv from "../Image/noImageAvailable.jpg";
 import styles from "./Views.module.css";
 
-const CastView = lazy(() => import("./CastView"));
+const Cast = lazy(() => import("./Cast"));
 
-const ReviewsView = lazy(() => import("./Reviews"));
+const Reviews = lazy(() => import("./Reviews"));
 
-export default function HomeSubView() {
+export default function MovieDetailsPage() {
   const { url, path } = useRouteMatch();
   const { moviesId } = useParams();
   const location = useLocation();
@@ -53,7 +53,7 @@ export default function HomeSubView() {
                   : noImageAv
               }
               alt={movie.title}
-              width="250"
+              width="350"
             />
             <div className={styles.about}>
               <h1 className={styles.movieTitle}>{movie.title}</h1>
@@ -72,34 +72,31 @@ export default function HomeSubView() {
                   ))}
                 </>
               )}
+
+              <p className={styles.information}>Additional information</p>
+              <NavLink
+                to={{
+                  pathname: `${url}/cast`,
+                  state: { from: { location } },
+                }}
+                className={styles.link}
+                activeClassName={styles.activeLink}
+              >
+                Cast
+              </NavLink>
+
+              <NavLink
+                to={{
+                  pathname: `${url}/reviews`,
+                  state: { from: { location } },
+                }}
+                className={styles.link}
+                activeClassName={styles.activeLink}
+              >
+                Reviews
+              </NavLink>
             </div>
           </div>
-
-          <nav className={styles.navigation}>
-            <p className={styles.information}>Additional information</p>
-
-            <NavLink
-              to={{
-                pathname: `${url}/cast`,
-                state: { from: { location } },
-              }}
-              className={styles.link}
-              activeClassName={styles.activeLink}
-            >
-              Cast
-            </NavLink>
-
-            <NavLink
-              to={{
-                pathname: `${url}/reviews`,
-                state: { from: { location } },
-              }}
-              className={styles.link}
-              activeClassName={styles.activeLink}
-            >
-              Reviews
-            </NavLink>
-          </nav>
 
           <Suspense
             fallback={
@@ -115,11 +112,11 @@ export default function HomeSubView() {
           >
             <Switch>
               <Route path={`${path}:moviesId/cast`}>
-                <CastView moviesId={moviesId} />
+                <Cast moviesId={moviesId} />
               </Route>
 
               <Route path={`${path}:moviesId/reviews`}>
-                <ReviewsView moviesId={moviesId} />
+                <Reviews moviesId={moviesId} />
               </Route>
             </Switch>
           </Suspense>

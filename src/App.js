@@ -6,11 +6,11 @@ import Loader from "react-loader-spinner";
 import Container from "./Components/Container/Container";
 import AppBar from "./Components/AppBar/AppBar";
 
-const HomeView = lazy(() => import("./views/HomeView"));
+const HomePage = lazy(() => import("./views/HomePage"));
 
-const MoviesView = lazy(() => import("./views/MoviesView"));
+const MoviesPage = lazy(() => import("./views/MoviesPage"));
 
-const HomeSubView = lazy(() => import("./views/HomeSubView"));
+const MovieDetailsPage = lazy(() => import("./views/MovieDetailsPage"));
 
 function App() {
   return (
@@ -32,19 +32,19 @@ function App() {
 
         <Switch>
           <Route path="/" exact>
-            <HomeView />
+            <HomePage />
           </Route>
 
           <Route path="/movies" exact>
-            <MoviesView />
+            <MoviesPage />
           </Route>
 
           <Route path="/movies/:moviesId">
-            <HomeSubView />
+            <MovieDetailsPage />
           </Route>
 
           <Route>
-            <HomeView />
+            <HomePage />
           </Route>
         </Switch>
       </Suspense>

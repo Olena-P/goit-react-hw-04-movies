@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import * as themoviedbAPI from "../services/movieteka-api";
 import styles from "./Views.module.css";
 
-export default function ReviewsView({ moviesId }) {
+export default function Reviews({ moviesId }) {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
