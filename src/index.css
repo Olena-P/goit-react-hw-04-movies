@@ -1,3 +1,10 @@
+:root {
+  --main-bg-color: #d5ffff;
+  --secondary-color: #6d4810;
+  --title-color: #fff;
+  --red-color: #f86868;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -12,13 +19,12 @@ body {
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 13px;
   color: #cccccc;
-  /* background-image: url(http://zornet.ru/_fr/56/4753188.jpg);
+  background: url(https://www.istockphoto.com/video/front-view-of-an-old-fashioned-antique-super-8mm-film-projector-projecting-a-beam-of-gm839995972-137357767);
+  background-size: 100%;
+  background-color: var(--main-bg-color);
+  background-position: bottom center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #000000;
-  background-position: top center;
-  background-repeat: no-repeat; */
-
-  color: rgb(10, 10, 10);
 }
 
 code {

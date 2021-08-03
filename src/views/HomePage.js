@@ -19,7 +19,7 @@ export default function HomePage() {
         setMovies(data.results);
       })
       .catch((error) => setError(error));
-  }, []);
+  }, [history]);
 
   return (
     <>

@@ -49,16 +49,6 @@ export default function MoviesPage() {
         <ul className={styles.trendItem}>
           {movies.map((movie) => (
             <li key={movie.id} className={styles.trendMovie}>
-              <img
-                src={
-                  movie.poster_path
-                    ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                    : noImageAv
-                }
-                alt={movie.title}
-                width="320"
-                className={styles.imageTrend}
-              />
               <NavLink
                 to={{
                   pathname: `${url}/${movie.id}`,
@@ -66,6 +56,17 @@ export default function MoviesPage() {
                 }}
                 className={styles.trendLink}
               >
+                <img
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                      : noImageAv
+                  }
+                  alt={movie.title}
+                  width="320"
+                  className={styles.imageTrend}
+                />
+
                 <p className={styles.title}>{movie.title}</p>
               </NavLink>
             </li>

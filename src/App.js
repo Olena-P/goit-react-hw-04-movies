@@ -23,7 +23,7 @@ function App() {
               color="#48e6cb"
               height={100}
               width={100}
-              timeout={3000}
+              timeout={9000}
             />
           </div>
         }

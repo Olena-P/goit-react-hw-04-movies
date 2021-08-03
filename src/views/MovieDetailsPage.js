@@ -46,6 +46,7 @@ export default function MovieDetailsPage() {
             &larr; Go back
           </button>
           <div className={styles.movies}>
+            {/*  */}
             <img
               src={
                 movie.poster_path
@@ -53,8 +54,9 @@ export default function MovieDetailsPage() {
                   : noImageAv
               }
               alt={movie.title}
-              width="350"
+              width="250"
             />
+            {/*  */}
             <div className={styles.about}>
               <h1 className={styles.movieTitle}>{movie.title}</h1>
               <p>User Score: {movie.vote_average * 10}%</p>
@@ -105,7 +107,7 @@ export default function MovieDetailsPage() {
                 color="#48e6cb"
                 height={100}
                 width={100}
-                timeout={3000}
+                timeout={9000}
                 className={styles.loader}
               />
             }
