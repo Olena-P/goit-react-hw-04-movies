@@ -12,6 +12,7 @@ import Loader from "react-loader-spinner";
 import * as themoviedbAPI from "../services/movieteka-api";
 import noImageAv from "../Image/noImageAvailable.jpg";
 import styles from "./Views.module.css";
+// import * as Scroll from "react-scroll";
 
 const Cast = lazy(() => import("./Cast"));
 
@@ -46,7 +47,6 @@ export default function MovieDetailsPage() {
             &larr; Go back
           </button>
           <div className={styles.movies}>
-            {/*  */}
             <img
               src={
                 movie.poster_path
@@ -56,7 +56,6 @@ export default function MovieDetailsPage() {
               alt={movie.title}
               width="250"
             />
-            {/*  */}
             <div className={styles.about}>
               <h1 className={styles.movieTitle}>{movie.title}</h1>
               <p>User Score: {movie.vote_average * 10}%</p>
